@@ -1,0 +1,41 @@
+<?php
+/** @var \Ecentura\InternshipTest\Block\EcenturaUserForm $block */
+?>
+<div id="ecenturauser_fe_form">
+    <form id="ecenturauser_fe_form" action="<?= $block->getFormActionUrl() ?>" method="post" data-mage-init='{"form":{}}'>
+        <fieldset class="admin__fieldset">
+            <!-- Name Field -->
+            <div class="field">
+                <label for="name" class="label"><span><?= __('Name') ?></span></label>
+                <div class="control">
+                    <input type="text" id="name" name="name" />
+                </div>
+            </div>
+
+            <!-- Birthday Field -->
+            <div class="field">
+                <label for="birthday" class="label"><span><?= __('Birthday') ?></span></label>
+                <div class="control">
+                    <input type="date" id="birthday" name="birthday" />
+                </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="field">
+                <label for="email" class="label"><span><?= __('Email') ?></span></label>
+                <div class="control">
+                    <input type="email" id="email" name="email"/>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action save primary" data-role="save">
+                    <span><?= __('Save') ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
