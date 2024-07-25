@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">ecentura_internshiptest_ecenturauser_form.ecenturauser_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="Ecentura\InternshipTest\Block\Adminhtml\EcenturaUser\Edit\BackButton"/>
+			<button name="delete" class="Ecentura\InternshipTest\Block\Adminhtml\EcenturaUser\Edit\DeleteButton"/>
+			<button name="save" class="Ecentura\InternshipTest\Block\Adminhtml\EcenturaUser\Edit\SaveButton"/>
+			<button name="save_and_continue" class="Ecentura\InternshipTest\Block\Adminhtml\EcenturaUser\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>ecentura_internshiptest_ecenturauser_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>ecentura_internshiptest_ecenturauser_form.ecenturauser_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="ecenturauser_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="ecenturauser_form_data_source" class="Ecentura\InternshipTest\Model\EcenturaUser\DataProvider">
+			<settings>
+				<requestFieldName>ecenturauser_id</requestFieldName>
+				<primaryFieldName>ecenturauser_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="name" formElement="textarea" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">EcenturaUser</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Name</label>
+				<dataScope>name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="birthday" formElement="input" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">EcenturaUser</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Birthday</label>
+				<dataScope>birthday</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="email" formElement="textarea" sortOrder="30">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">EcenturaUser</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Email</label>
+				<dataScope>email</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Ecentura::top_level" title="Ecentura" module="Ecentura_InternshipTest" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="Ecentura_InternshipTest::ecentura_internshiptest_ecenturauser" title="Ecentura User" module="Ecentura_InternshipTest" sortOrder="9999" resource="Magento_Backend::content" parent="Ecentura::top_level" action="ecentura_internshiptest/ecenturauser/index"/>
+	</menu>
+</config>

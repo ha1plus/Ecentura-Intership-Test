@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="ecentura_internshiptest_ecenturauser" resource="default" engine="innodb" comment="ecentura_internshiptest_ecenturauser Table">
+		<column xsi:type="int" name="ecenturauser_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="ecenturauser_id"/>
+		</constraint>
+		<column name="name" nullable="true" xsi:type="text" comment="name"/>
+		<column name="birthday" nullable="true" xsi:type="datetime" comment="birthday"/>
+		<column name="email" nullable="true" xsi:type="text" comment="email"/>
+	</table>
+</schema>
