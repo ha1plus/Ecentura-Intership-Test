@@ -1,0 +1,12 @@
+/* Apply styles for screens 769px and wider */
+@media screen and (min-width: 769px) {
+    .header.content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo {
+        margin: 0;
+    }
+}
+
