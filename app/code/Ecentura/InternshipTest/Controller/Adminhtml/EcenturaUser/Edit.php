@@ -36,28 +36,28 @@ class Edit extends \Ecentura\InternshipTest\Controller\Adminhtml\EcenturaUser
         // 1. Get ID and create model
         $id = $this->getRequest()->getParam('ecenturauser_id');
         $model = $this->_objectManager->create(\Ecentura\InternshipTest\Model\EcenturaUser::class);
-        
+
         // 2. Initial checking
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
-                $this->messageManager->addErrorMessage(__('This Ecenturauser no longer exists.'));
+                $this->messageManager->addErrorMessage(__('This Ecentura User no longer exists.'));
                 /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
                 return $resultRedirect->setPath('*/*/');
             }
         }
         $this->_coreRegistry->register('ecentura_internshiptest_ecenturauser', $model);
-        
+
         // 3. Build edit form
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $this->initPage($resultPage)->addBreadcrumb(
-            $id ? __('Edit Ecenturauser') : __('New Ecenturauser'),
-            $id ? __('Edit Ecenturauser') : __('New Ecenturauser')
+            $id ? __('Edit Ecentura User') : __('New Ecentura User'),
+            $id ? __('Edit Ecentura User') : __('New Ecentura User')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('Ecenturausers'));
-        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? __('Edit Ecenturauser %1', $model->getId()) : __('New Ecenturauser'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Ecentura User'));
+        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? __('Edit Ecentura User %1', $model->getId()) : __('New Ecentura User'));
         return $resultPage;
     }
 }

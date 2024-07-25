@@ -65,14 +65,14 @@ class DataProvider extends AbstractDataProvider
             $this->loadedData[$model->getId()] = $model->getData();
         }
         $data = $this->dataPersistor->get('ecentura_internshiptest_ecenturauser');
-        
+
         if (!empty($data)) {
             $model = $this->collection->getNewEmptyItem();
             $model->setData($data);
             $this->loadedData[$model->getId()] = $model->getData();
             $this->dataPersistor->clear('ecentura_internshiptest_ecenturauser');
         }
-        
+
         return $this->loadedData;
     }
 }

@@ -28,7 +28,7 @@ class Delete extends \Ecentura\InternshipTest\Controller\Adminhtml\EcenturaUser
                 $model->load($id);
                 $model->delete();
                 // display success message
-                $this->messageManager->addSuccessMessage(__('You deleted the Ecenturauser.'));
+                $this->messageManager->addSuccessMessage(__('You deleted the Ecentura User.'));
                 // go to grid
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
@@ -39,7 +39,7 @@ class Delete extends \Ecentura\InternshipTest\Controller\Adminhtml\EcenturaUser
             }
         }
         // display error message
-        $this->messageManager->addErrorMessage(__('We can\'t find a Ecenturauser to delete.'));
+        $this->messageManager->addErrorMessage(__('We can\'t find a Ecentura User to delete.'));
         // go to grid
         return $resultRedirect->setPath('*/*/');
     }

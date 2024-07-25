@@ -35,7 +35,7 @@ class InlineEdit extends \Magento\Backend\App\Action
         $resultJson = $this->jsonFactory->create();
         $error = false;
         $messages = [];
-        
+
         if ($this->getRequest()->getParam('isAjax')) {
             $postItems = $this->getRequest()->getParam('items', []);
             if (!count($postItems)) {
@@ -49,13 +49,13 @@ class InlineEdit extends \Magento\Backend\App\Action
                         $model->setData(array_merge($model->getData(), $postItems[$modelid]));
                         $model->save();
                     } catch (\Exception $e) {
-                        $messages[] = "[Ecenturauser ID: {$modelid}]  {$e->getMessage()}";
+                        $messages[] = "[Ecentura User ID: {$modelid}]  {$e->getMessage()}";
                         $error = true;
                     }
                 }
             }
         }
-        
+
         return $resultJson->setData([
             'messages' => $messages,
             'error' => $error

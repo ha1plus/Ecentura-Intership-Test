@@ -77,7 +77,7 @@ class EcenturaUserRepository implements EcenturaUserRepositoryInterface
             $this->resource->save($ecenturaUser);
         } catch (\Exception $exception) {
             throw new CouldNotSaveException(__(
-                'Could not save the ecenturaUser: %1',
+                'Could not save the Ecentura User: %1',
                 $exception->getMessage()
             ));
         }
@@ -92,7 +92,7 @@ class EcenturaUserRepository implements EcenturaUserRepositoryInterface
         $ecenturaUser = $this->ecenturaUserFactory->create();
         $this->resource->load($ecenturaUser, $ecenturaUserId);
         if (!$ecenturaUser->getId()) {
-            throw new NoSuchEntityException(__('EcenturaUser with id "%1" does not exist.', $ecenturaUserId));
+            throw new NoSuchEntityException(__('Ecentura User with id "%1" does not exist.', $ecenturaUserId));
         }
         return $ecenturaUser;
     }
@@ -104,17 +104,17 @@ class EcenturaUserRepository implements EcenturaUserRepositoryInterface
         \Magento\Framework\Api\SearchCriteriaInterface $criteria
     ) {
         $collection = $this->ecenturaUserCollectionFactory->create();
-        
+
         $this->collectionProcessor->process($criteria, $collection);
-        
+
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setSearchCriteria($criteria);
-        
+
         $items = [];
         foreach ($collection as $model) {
             $items[] = $model;
         }
-        
+
         $searchResults->setItems($items);
         $searchResults->setTotalCount($collection->getSize());
         return $searchResults;
@@ -131,7 +131,7 @@ class EcenturaUserRepository implements EcenturaUserRepositoryInterface
             $this->resource->delete($ecenturaUserModel);
         } catch (\Exception $exception) {
             throw new CouldNotDeleteException(__(
-                'Could not delete the EcenturaUser: %1',
+                'Could not delete the Ecentura User: %1',
                 $exception->getMessage()
             ));
         }

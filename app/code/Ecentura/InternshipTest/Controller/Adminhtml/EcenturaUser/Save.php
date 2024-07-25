@@ -38,20 +38,20 @@ class Save extends \Magento\Backend\App\Action
         $data = $this->getRequest()->getPostValue();
         if ($data) {
             $id = $this->getRequest()->getParam('ecenturauser_id');
-        
+
             $model = $this->_objectManager->create(\Ecentura\InternshipTest\Model\EcenturaUser::class)->load($id);
             if (!$model->getId() && $id) {
-                $this->messageManager->addErrorMessage(__('This Ecenturauser no longer exists.'));
+                $this->messageManager->addErrorMessage(__('This Ecentura User no longer exists.'));
                 return $resultRedirect->setPath('*/*/');
             }
-        
+
             $model->setData($data);
-        
+
             try {
                 $model->save();
-                $this->messageManager->addSuccessMessage(__('You saved the Ecenturauser.'));
+                $this->messageManager->addSuccessMessage(__('You saved the Ecentura User.'));
                 $this->dataPersistor->clear('ecentura_internshiptest_ecenturauser');
-        
+
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['ecenturauser_id' => $model->getId()]);
                 }
@@ -59,9 +59,9 @@ class Save extends \Magento\Backend\App\Action
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the Ecenturauser.'));
+                $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the Ecentura User.'));
             }
-        
+
             $this->dataPersistor->set('ecentura_internshiptest_ecenturauser', $data);
             return $resultRedirect->setPath('*/*/edit', ['ecenturauser_id' => $this->getRequest()->getParam('ecenturauser_id')]);
         }
